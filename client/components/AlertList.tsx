@@ -13,6 +13,10 @@ export default function AlertList() {
     return <div>There was an error loading alerts</div>
   }
 
+  if (alerts === 'null' || isLoading) {
+    return <div className="loading">Loading alerts...</div>
+  }
+
   if (!alerts || isLoading) {
     return <div>Loading alerts...</div>
   }
@@ -20,28 +24,10 @@ export default function AlertList() {
   return (
     <>
       <section className="alert-list">
-        <h2>alert List</h2>
-        <div>
-          {alerts.map((alerts) => (
-            <div key={alerts.id}>
-              <h3>
-                <Link to={`${alerts.id}`} id="link">
-                  {alerts.AlertName}
-                </Link>
-              </h3>
-              <div>
-                <AlertListItem
-                  key={alerts.id}
-                  alertId={alerts.id}
-                  alertName={alerts.AlertName}
-                />
-                <br />
-              </div>
-            </div>
-          ))}
-        </div>
+        <h2>Alert List:</h2>
+        <h1>{`${alerts}`}</h1>
 
-        <h2>Add A alert</h2>
+        <h2>Customize an alert</h2>
         <AlertForm />
       </section>
     </>
