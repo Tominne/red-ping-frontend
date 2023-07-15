@@ -1,19 +1,15 @@
 {
   "name": "redping",
   "version": "0.1.0",
-  "description": "Build a fullstack collection app",
-  "repository": "https://github.com/Tominne/Alert/upload",
-  "main": "server/index.ts",
+  "description": "Build a alert app",
+  "repository": "https://github.com/Red-Ping/red-ping-frontend",
+  "main": "client/index.tsx",
   "scripts": {
     "build": "run-s build:client build:server",
     "build:client": "vite build",
-    "build:server": "tsc -p server/tsconfig.json",
-    "start": "node dist/server/index.js",
     "test": "vitest",
-    "dev": "run-p dev:client dev:server",
+    "dev": "run-p dev:client",
     "dev:client": "vite --host",
-    "dev:server": "nodemon server/index.ts",
-    "knex": "knex --knexfile ./server/db/knexfile.js",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "format": "prettier -w '**/*.{js,jsx,ts,tsx}'"
   },
