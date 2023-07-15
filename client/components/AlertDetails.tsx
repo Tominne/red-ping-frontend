@@ -1,35 +1,27 @@
 import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'react-router-dom'
 
-import { getmemeById } from '../apis/memes'
+import { getalertById } from '../apis/alert'
 
-export default function MemeDetails() {
-  const { memeId } = useParams()
+export default function alertDetails() {
+  const { alertId } = useParams()
 
-  const memeDetailsQuery = useQuery(['memes', memeId], () =>
-    getmemeById(memeId as string)
+  const alertDetailsQuery = useQuery(['alerts', alertId], () =>
+    getalertById(alertId as string)
   )
 
-  if (memeDetailsQuery.isError) {
-    return <div>There was an error getting your meme</div>
+  if (alertDetailsQuery.isError) {
+    return <div>There was an error getting your alert</div>
   }
 
-  if (memeDetailsQuery.isLoading) {
-    return <div>Loading your meme</div>
+  if (alertDetailsQuery.isLoading) {
+    return <div>Loading your alert</div>
   }
 
   return (
-    <section className="meme-details">
-      <h2>meme Details</h2>
-      <div>
-        <p>
-          Image:{' '}
-          <img
-            src={memeDetailsQuery.data.memeUrl}
-            alt={memeDetailsQuery.data.memeName}
-          />
-        </p>
-      </div>
+    <section className="alert-details">
+      <h2>alert Details</h2>
+
       <br />
       <h2>More to come...</h2>
     </section>

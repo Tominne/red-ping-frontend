@@ -35,8 +35,8 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.meme-list,
-.meme-details {
+.alert-list,
+.alert-details {
   display: flex;
   flex-direction: column;
   align-items: center;
