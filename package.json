@@ -1,15 +1,24 @@
 {
   "name": "redping",
   "version": "0.1.0",
+<<<<<<< HEAD
   "description": "Build a alert app",
   "repository": "https://github.com/Red-Ping/red-ping-frontend",
+=======
+  "description": "Build a fullstack collection app",
+  "repository": "https://github.com/Tominne/Alert/upload",
+>>>>>>> refs/remotes/origin/main
   "main": "client/index.tsx",
   "scripts": {
-    "build": "run-s build:client build:server",
+    "build": "run-s build:client",
     "build:client": "vite build",
     "test": "vitest",
     "dev": "run-p dev:client",
     "dev:client": "vite --host",
+<<<<<<< HEAD
+=======
+    "knex": "knex --knexfile ./server/db/knexfile.js",
+>>>>>>> refs/remotes/origin/main
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "format": "prettier -w '**/*.{js,jsx,ts,tsx}'"
   },
