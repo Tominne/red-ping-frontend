@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Build a fullstack collection app",
   "repository": "https://github.com/Tominne/Alert/upload",
-  "main": "server/index.ts",
+  "main": "client/index.tsx",
   "scripts": {
     "build": "run-s build:client",
     "build:client": "vite build",
