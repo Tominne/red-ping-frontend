@@ -25,7 +25,7 @@ export default function AlertList() {
     <>
       <section className="alert-list">
         <h2>Alert List:</h2>
-        <h1>{`${alerts}`}</h1>
+        <h1 className="alerts">{`${[alerts]}`}</h1>
 
         <h2>Customize an alert</h2>
         <AlertForm />

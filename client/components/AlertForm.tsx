@@ -43,7 +43,7 @@ export default function AlertForm() {
       <section id="add-alert-to-list" className="formContainer">
         <form onSubmit={handleSubmit} aria-label="Add alert Form">
           <p>
-            <label htmlFor="alertName">alert Title</label>
+            <label htmlFor="alertName">Alert Title</label>
             <input
               type="text"
               id="alertName"

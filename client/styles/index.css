@@ -53,6 +53,10 @@ body {
   text-decoration-line: none;
 }
 
+.alerts {
+  color: red;
+}
+
 p {
   font-size: larger;
   color: rgba(255, 0, 0, 0.953);

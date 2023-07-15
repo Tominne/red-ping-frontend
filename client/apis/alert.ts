@@ -1,21 +1,21 @@
 import request from 'superagent'
 import { Alert, AlertData } from '../../models/alert'
+import { json } from 'react-router-dom'
 
 export async function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
-const alertURL = '/red-ping-api-poc.isaacirvine.me'
+const alertURL = 'https://red-ping-api-poc.isaacirvine.me'
 
 //get alert
 export async function getAlerts(): Promise<any> {
-  // mode: 'no-cors',
   try {
     const response = await request.get(`${alertURL}/`)
     console.log(response.body)
-    const body = response.body
-    console.log(body)
-    return JSON.stringify(body)
+    const stringed = JSON.stringify(response.body)
+    const cleanedString = stringed.replace(/[{}:"]/g, ' ')
+    return cleanedString
   } catch (error) {
     console.error(error)
   }
