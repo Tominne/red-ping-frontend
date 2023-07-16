@@ -1,5 +1,5 @@
 import { getAlerts } from '../apis/alert'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
 import { Button } from 'react-bootstrap'
 import Alert from 'react-bootstrap/Alert'
 import { useQuery } from '@tanstack/react-query'
@@ -9,7 +9,9 @@ import AlertListItem from './AlertListItem'
 
 export default function AlertList() {
   const { data: alerts, isError, isLoading } = useQuery(['alerts'], getAlerts)
-
+  useEffect(() => {
+    return () => {}
+  }, [])
   if (isError) {
     return <div>There was an error loading alerts</div>
   }

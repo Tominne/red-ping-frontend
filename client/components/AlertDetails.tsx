@@ -21,9 +21,7 @@ export default function alertDetails() {
   return (
     <section className="alert-details">
       <h2>alert Details</h2>
-
-      <br />
-      <h2>More to come...</h2>
+      <p>{`${alert}`}</p>
     </section>
   )
 }

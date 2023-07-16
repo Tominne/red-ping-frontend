@@ -74,7 +74,14 @@ p {
   color: rgba(255, 66, 66, 0.953);
 }
 
- 
+.Link {
+  margin: auto;
+  margin-top: 5vh;
+  margin-bottom: 7vh;
+  text-align: center;
+  display: flex;
+
+} 
 
 Button {
   margin: auto;
@@ -97,4 +104,5 @@ Button {
 .header {
   color: #ff5b5b;
   margin-top: 7vh;
+  background-color: linear-gradient(rgba(134,115,71,1.0),rgba(131,110,82,1.0),rgba(111,85,62,1.0),rgba(78,59,42,1.0),rgba(96,91,78,1.0),rgba(117,117,107,1.0));
 }

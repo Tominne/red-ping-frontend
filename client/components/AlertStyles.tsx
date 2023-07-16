@@ -22,3 +22,14 @@ function BasicExample() {
 }
 
 export default BasicExample
+
+/*$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);*/
