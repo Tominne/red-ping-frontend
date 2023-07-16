@@ -6,6 +6,7 @@ body {
   font-size: 1em;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 .title,
@@ -55,9 +56,16 @@ body {
 
 .alerts {
   color: red;
+  font-size: x-large;
 }
 
 p {
   font-size: larger;
   color: rgba(255, 0, 0, 0.953);
+}
+
+button {
+  margin: auto;
+  color: aliceblue;
+  display: flex;
 }

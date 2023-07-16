@@ -1,4 +1,4 @@
-import { createRoot } from 'react-dom/client'
+/*import { createRoot } from 'react-dom/client'
 import { routes } from './routes'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
@@ -15,4 +15,4 @@ root.render(
     <RouterProvider router={router} />
     <ReactQueryDevtools />
   </QueryClientProvider>
-)
+)*/

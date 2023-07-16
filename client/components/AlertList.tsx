@@ -1,6 +1,7 @@
 import { getAlerts } from '../apis/alert'
 import { Link } from 'react-router-dom'
-
+import { Button } from 'react-bootstrap'
+import Alert from 'react-bootstrap/Alert'
 import { useQuery } from '@tanstack/react-query'
 import AlertForm from './AlertForm'
 
@@ -25,8 +26,9 @@ export default function AlertList() {
     <>
       <section className="alert-list">
         <h2>Alert List:</h2>
-        <h1 className="alerts">{`${[alerts]}`}</h1>
-
+        <br></br>
+        <Alert variant="danger">{`${[alerts]}`}</Alert>
+        <br></br>
         <h2>Customize an alert</h2>
         <AlertForm />
       </section>

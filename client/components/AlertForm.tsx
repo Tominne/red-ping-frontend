@@ -2,6 +2,7 @@ import { ChangeEvent, FormEvent, useState } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { addalert } from '../apis/alert'
 import { AlertData } from '../../models/alert'
+import { Button, Stack } from 'react-bootstrap'
 
 const initialFormData = {
   AlertName: '',
@@ -54,7 +55,20 @@ export default function AlertForm() {
             />
           </p>
 
-          <button type="submit">Add alert</button>
+          <Stack direction="horizontal" gap={2}>
+            <Button as="a" variant="primary" type="submit">
+              Add alert
+            </Button>{' '}
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButtonDark"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Examples
+            </button>
+          </Stack>
         </form>
       </section>
     </>

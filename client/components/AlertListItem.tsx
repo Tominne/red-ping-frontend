@@ -1,5 +1,8 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useState } from 'react'
+import Badge from 'react-bootstrap/Badge'
+import Button from 'react-bootstrap/Button'
+import { Stack } from 'react-bootstrap'
 import { deletealert, updatealert } from '../apis/alert'
 
 interface Props {
@@ -67,16 +70,27 @@ export default function AlertListItem({ alertId, alertName }: Props) {
               onChange={(e) => setRename(e.target.value)}
             />
 
-            <button type="submit">Save</button>
-            <button type="button" onClick={handleStopUpdatingClick}>
+            <Button as="a" variant="primary" type="submit">
+              Save
+            </Button>
+            <Button
+              as="a"
+              variant="primary"
+              type="button"
+              onClick={handleStopUpdatingClick}
+            >
               Stop
-            </button>
+            </Button>
           </form>
         ) : (
-          <p>
-            <button onClick={handleDeleteClick}>Delete</button>
-            <button onClick={handleStartUpdatingClick}>Update</button>
-          </p>
+          <Stack direction="horizontal" gap={2}>
+            <Button as="a" variant="primary" onClick={handleDeleteClick}>
+              Delete
+            </Button>
+            <Button as="a" variant="primary" onClick={handleStartUpdatingClick}>
+              Update
+            </Button>
+          </Stack>
         )}
       </div>
     </>
