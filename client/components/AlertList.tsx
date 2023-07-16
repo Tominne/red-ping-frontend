@@ -23,7 +23,7 @@ export default function AlertList() {
   }
 
   return (
-    <>
+    <div className="background">
       <section className="alert-list">
         <h2>Alert List:</h2>
         <br></br>
@@ -32,6 +32,6 @@ export default function AlertList() {
         <h2>Customize an alert</h2>
         <AlertForm />
       </section>
-    </>
+    </div>
   )
 }

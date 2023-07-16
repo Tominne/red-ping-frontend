@@ -9,6 +9,11 @@ body {
   text-align: center;
 }
 
+link {
+  margin: auto;
+  text-align: center;
+}
+
 .title,
 .nav {
   text-align: center;
@@ -60,12 +65,36 @@ body {
 }
 
 p {
-  font-size: larger;
-  color: rgba(255, 0, 0, 0.953);
+  font-size:x-large;
+  margin: 10px, 10px, 10px, 10px;
+  text-align: center;
+  display: flex;
+  flex-basis: auto;
+  border: #2f2e2e;
+  color: rgba(255, 66, 66, 0.953);
 }
 
-button {
+ 
+
+Button {
   margin: auto;
+  text-align: center;
   color: aliceblue;
-  display: flex;
+  display: block;
+  margin-top: 9vh;
+}
+
+.background {background-image: var(--bs-bg-dark-bg-gradient);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  --bs-bg-opacity: 1;
+  color: aliceblue;
+  background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important
+}
+
+.header {
+  color: #ff5b5b;
+  margin-top: 7vh;
 }

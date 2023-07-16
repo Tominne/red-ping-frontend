@@ -60,7 +60,7 @@ export default function AlertForm() {
               Add alert
             </Button>{' '}
             <button
-              class="btn btn-secondary dropdown-toggle"
+              className="btn btn-secondary dropdown-toggle"
               type="button"
               id="dropdownMenuButtonDark"
               data-bs-toggle="dropdown"
@@ -68,6 +68,31 @@ export default function AlertForm() {
             >
               Examples
             </button>
+            <ul
+              className="dropdown-menu"
+              aria-labelledby="dropdownMenuButtonDark"
+            >
+              <li>
+                <a className="dropdown-item active" href="#">
+                  Mild Discomfort
+                </a>
+              </li>
+              <li>
+                <a className="dropdown-item" href="#">
+                  Require Urgent Action
+                </a>
+              </li>
+              <li>
+                <a className="dropdown-item" href="#">
+                  Keep Tabs
+                </a>
+              </li>
+              <li>
+                <a className="dropdown-item" href="#">
+                  On The Mend
+                </a>
+              </li>
+            </ul>
           </Stack>
         </form>
       </section>
