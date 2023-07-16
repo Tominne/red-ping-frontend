@@ -4,7 +4,10 @@ import { Button } from 'react-bootstrap'
 import Alert from 'react-bootstrap/Alert'
 import { useQuery } from '@tanstack/react-query'
 import AlertForm from './AlertForm'
-
+import { Uploader } from 'uploader'
+const uploader = Uploader({
+  apiKey: 'free',
+})
 import AlertListItem from './AlertListItem'
 
 export default function AlertList() {

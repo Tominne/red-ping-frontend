@@ -14,7 +14,7 @@ export default function AppLayout() {
             <h3>Alert List</h3>
           </Link>
           <br></br>
-          <Link className="Link" to="/home">
+          <Link className="Link" to="/profile">
             <h3>Profile</h3>
           </Link>
         </nav>

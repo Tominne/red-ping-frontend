@@ -4,6 +4,7 @@ import Alert from 'react-bootstrap/Alert'
 import { useQuery } from '@tanstack/react-query'
 import { getUserFeed } from '../apis/userFeed'
 import { useEffect } from 'react'
+import uploader from './ProfilePage'
 
 export default function HomePage() {
   /* const { data: userFeed, isError, isLoading } = useQuery(['user'], getUserFeed)
