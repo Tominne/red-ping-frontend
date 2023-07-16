@@ -2,7 +2,7 @@ import { Link, Outlet } from 'react-router-dom'
 
 export default function AppLayout() {
   return (
-    <div className="background">
+    <div className="header">
       <header className="header">
         <h1 className="title">Red Ping</h1>
         <nav className="nav">

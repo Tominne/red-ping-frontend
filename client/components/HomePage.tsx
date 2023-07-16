@@ -3,28 +3,33 @@ import { Button } from 'react-bootstrap'
 import Alert from 'react-bootstrap/Alert'
 import { useQuery } from '@tanstack/react-query'
 import { getUserFeed } from '../apis/userFeed'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import uploader from './ProfilePage'
 
 export default function HomePage() {
-  /* const { data: userFeed, isError, isLoading } = useQuery(['user'], getUserFeed)
-  if (isError) {
-    return <div>There was an error loading your Home-Page</div>
-  }*/
-  const now = new Date()
-  const hours = now.getHours()
+  const [timeOfDay, setTimeOfDay] = useState('waiting')
+  const [greeting, setGreeting] = useState('Hello!')
+  useEffect(() => {
+    const now = new Date()
+    const hours = now.getHours()
 
-  let greeting
-  if (hours < 12) {
-    greeting = 'Good Morning! 🐔'
-  } else if (hours < 18) {
-    greeting = 'Good Afternoon 🐈'
-  } else {
-    greeting = 'Good Evening 🥰'
-  }
+    let greeting
+    if (hours < 12) {
+      setGreeting('Good Morning! 🐔')
+      setTimeOfDay('dawn')
+    } else if (hours < 18) {
+      setGreeting('Good Afternoon 🐈')
+      setTimeOfDay('waiting')
+    } else if (hours >= 18 && hours < 24) {
+      setGreeting('Good Evening 🥰')
+      setTimeOfDay('dusk')
+    } else {
+      setTimeOfDay('waiting')
+    }
+  }, [])
 
   return (
-    <div className="background">
+    <div className={`${timeOfDay}`}>
       <h1>{`${greeting}`}</h1>
       <br></br>
       <Alert className="alert">

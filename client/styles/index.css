@@ -102,7 +102,78 @@ Button {
 }
 
 .header {
+  z-index: 2;
   color: #ff5b5b;
   margin-top: 7vh;
   background-color: linear-gradient(rgba(134,115,71,1.0),rgba(131,110,82,1.0),rgba(111,85,62,1.0),rgba(78,59,42,1.0),rgba(96,91,78,1.0),rgba(117,117,107,1.0));
+}
+
+.dusk {
+  background: radial-gradient(orange, #1f3c9b, #0e183d, #171e36);
+  background-size: 200% 250%;background-position:  0% -100px;background-repeat: no-repeat;
+  opacity: 1;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: -0;
+  animation: sunset 3s ease-in 1; 
+  animation-fill-mode: forwards;
+}
+
+.dawn {
+  background: radial-gradient(#efb456 5%, 15%, #2c55db 50%, #3c4e8c, #2b3866); background-size: 200% 250%;background-position:  0% -100px;background-repeat: no-repeat;
+  opacity: 1;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  animation: sunrise 3s ease-in 1; 
+  animation-fill-mode: forwards;
+}
+
+.waiting {
+  background: radial-gradient(#efb456 3%, 8%, #7daaf2 30%, #6787fc, #5076fc);background-size: 200% 250%; background-position:40% 100%; background-repeat: no-repeat;opacity: 0.8;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  animation-fill-mode: forwards;
+} 
+
+@keyframes sunrise {
+  
+  0%{background: radial-gradient(#efb456 5%, 15%, #2c55db 50%, #3c4e8c, #2b3866); background-size: 200% 250%;background-position: 0% -100px;background-repeat: no-repeat; opacity: 1}
+  
+  
+ 25%{background: radial-gradient(#efb456 5%, 15%, #365ddb 50%, #253463, #35457f); background-size: 200% 250%;background-position: 10% 25%;background-repeat: no-repeat; opacity: 0.9}
+  
+  50%{background: radial-gradient(#efb456 5%, 15%,  #8db0e8 30%, #4e68c4, #3b53aa); background-position:20% 50%; background-size: 200% 250%;background-repeat: no-repeat; opacity: 0.9} 
+  
+  75%{ background: radial-gradient(#efb456 5%, 15%, #8db0e8 30%, #4e70ed, #4369f2);background-size: 200% 250%; background-position:30% 75%; background-repeat: no-repeat;opacity: 0.9;
+  }
+  
+  95%{ background: radial-gradient(#efb456 5%, 15%, #7daaf2 30%, #6787fc, #5076fc);background-size: 200% 250%; background-position:40% 96%; background-repeat: no-repeat;opacity: 0.8;
+  }
+  100%{ background: radial-gradient(#efb456 3%, 8%, #7daaf2 30%, #6787fc, #5076fc);background-size: 200% 250%; background-position:40% 100%; background-repeat: no-repeat;opacity: 0.8;
+}
+}
+
+ @keyframes sunset {
+  0%{ background: radial-gradient(#efb456 5%, 10%, #7daaf2 30%, #6787fc, #5076fc);background-size: 200% 250%;background-position:40% 100%;  background-repeat: no-repeat;opacity: 0.8;}
+   25%{
+      background: radial-gradient(#ed9f23, #4668d6, #171e36, #253056);background-size: 200% 250%;background-position:55% 75%;  background-repeat: no-repeat;opacity: 0.8;
+     
+   }
+   
+    50%{background: radial-gradient(#ed9c1a, #2c55db, #111628, #141b30);background-size: 200% 250%; opacity: 0.85;background-position:70% 50%; opacity: 0.9;}
+   
+   75%{background-position: 85% 25%; opacity: 0.95;}
+   
+    100%{background-position:100% 0%; opacity: 1;} 
 }
