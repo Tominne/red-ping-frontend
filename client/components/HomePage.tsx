@@ -10,9 +10,21 @@ export default function HomePage() {
   if (isError) {
     return <div>There was an error loading your Home-Page</div>
   }*/
+  const now = new Date()
+  const hours = now.getHours()
+
+  let greeting
+  if (hours < 12) {
+    greeting = 'Good Morning! 🐔'
+  } else if (hours < 18) {
+    greeting = 'Good Afternoon 🐈'
+  } else {
+    greeting = 'Good Evening 🥰'
+  }
+
   return (
     <div className="background">
-      <h1>GoodMorning</h1>
+      <h1>{`${greeting}`}</h1>
       <br></br>
       <Alert className="alert">
         Welcome to Your Personal Digital Alert App
