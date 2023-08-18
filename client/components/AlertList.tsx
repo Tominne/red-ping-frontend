@@ -1,5 +1,6 @@
 import { getAlerts } from '../apis/alert'
 import React, { useEffect } from 'react'
+import axios from 'axios'
 import { Button } from 'react-bootstrap'
 import Alert from 'react-bootstrap/Alert'
 import { useQuery } from '@tanstack/react-query'

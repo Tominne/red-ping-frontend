@@ -1,5 +1,6 @@
 html,
 body {
+  overflow: auto;
   background-color: #2f2e2e;
   color: #ffffff;
   font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
