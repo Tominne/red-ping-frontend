@@ -70,12 +70,13 @@ link {
 
 p {
   font-size:x-large;
-  margin: 10px, 10px, 10px, 10px;
   text-align: center;
-  display: flex;
+  display: block;
   flex-basis: auto;
   border: #2f2e2e;
   color: rgba(255, 66, 66, 0.953);
+  margin: auto;
+  text-align: center ;
 }
 
 .Link {

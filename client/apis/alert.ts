@@ -1,12 +1,58 @@
 import request from 'superagent'
 import { Alert, AlertData } from '../../models/alert'
-import { json } from 'react-router-dom'
+import React, { useState } from 'react'
 
 export async function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
 const alertURL = 'https://red-ping-api-poc.isaacirvine.me'
+
+export const signUp = async (email: string, password: string) => {
+  try {
+    // send a POST request to the API with the email and password
+    const response = await fetch('/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    })
+    const data = await response.json()
+    if (data.success) {
+      return { success: true }
+    } else {
+      return { success: false, message: data.message }
+    }
+  } catch (err) {
+    console.log(err)
+    return { success: false, message: 'An error occurred. Please try again.' }
+  }
+}
+
+export const login = async (username: string, password: any) => {
+  const response = await fetch(alertURL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: new URLSearchParams({
+      grant_type: '<type>',
+      username,
+      password,
+      scope: '<SCOPE>',
+      client_id: '<CLIENT_ID>',
+      client_secret: '<CLIENT_SECRET>',
+    }),
+  })
+
+  if (!response.ok) {
+    throw new Error('Login failed')
+  }
+
+  const data = await response.json()
+  return data
+}
 
 //get alert
 export async function getAlerts(): Promise<any> {
