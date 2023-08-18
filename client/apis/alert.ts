@@ -10,7 +10,10 @@ const alertURL = 'https://red-ping-api-poc.isaacirvine.me'
 export const signUp = async (email: string, password: string) => {
   try {
     // send a POST request to the API with the email and password
-    const response = await axios.post(alertURL, { email, password })
+    const response = await axios.post(
+      'https://red-ping-api-poc.isaacirvine.me',
+      { email, password }
+    )
     const data = response.data
     if (data.success) {
       return { success: true }
