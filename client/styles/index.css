@@ -177,3 +177,18 @@ Button {
    
     100%{background-position:100% 0%; opacity: 1;} 
 }
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.round-button {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+ 
+}
+
+
