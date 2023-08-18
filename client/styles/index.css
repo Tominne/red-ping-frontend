@@ -9,6 +9,20 @@ body {
   text-align: center;
 }
 
+form {
+  display: flex; /* makes the form a flex container */
+  flex-direction: column; /* aligns the form's children vertically */
+  align-items: center; /* centers the form's children horizontally */
+  justify-content: center; /* centers the form's children vertically */
+ 
+}
+input{
+  margin: auto;
+  text-align: center;
+  display: block;
+  
+}
+
 link {
   margin: auto;
   text-align: center;
