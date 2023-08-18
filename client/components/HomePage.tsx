@@ -32,16 +32,16 @@ export default function HomePage() {
     <div className={`${timeOfDay}`}>
       <h1>{`${greeting}`}</h1>
       <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <Alert className="alert">
         Welcome to Your Personal Digital Alert App
       </Alert>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
       <br></br>
       <br></br>
     </div>
