@@ -1,7 +1,6 @@
 import request from 'superagent'
+import axios from 'axios'
 import { Alert, AlertData } from '../../models/alert'
-import React, { useState } from 'react'
-
 export async function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
@@ -11,14 +10,8 @@ const alertURL = 'https://red-ping-api-poc.isaacirvine.me'
 export const signUp = async (email: string, password: string) => {
   try {
     // send a POST request to the API with the email and password
-    const response = await fetch('/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    })
-    const data = await response.json()
+    const response = await axios.post(alertURL, { email, password })
+    const data = response.data
     if (data.success) {
       return { success: true }
     } else {
