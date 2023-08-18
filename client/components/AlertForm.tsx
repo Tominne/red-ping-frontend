@@ -1,15 +1,15 @@
-import { ChangeEvent, FormEvent, useState } from 'react'
+import { useState } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { addalert } from '../apis/alert'
-import { AlertData } from '../../models/alert'
-import { Button, Stack } from 'react-bootstrap'
+import { Button, Dropdown } from 'react-bootstrap'
 
 const initialFormData = {
   AlertName: '',
 }
 
 export default function AlertForm() {
-  const [form, setForm] = useState<AlertData>(initialFormData)
+  const [form, setForm] = useState(initialFormData)
+  const [isOpen, setIsOpen] = useState(false)
 
   const queryClient = useQueryClient()
 
@@ -19,13 +19,13 @@ export default function AlertForm() {
     },
   })
 
-  function handleChange(event: ChangeEvent<HTMLInputElement>) {
-    const { name, value } = event.target
-    const newForm = { ...form, [name]: value }
-    setForm(newForm)
+  const handleOpen = () => {
+    setIsOpen(!isOpen)
   }
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) {
     event.preventDefault()
     addalertMutation.mutate(form)
     setForm(initialFormData)
@@ -42,59 +42,27 @@ export default function AlertForm() {
   return (
     <>
       <section id="add-alert-to-list" className="formContainer">
-        <form onSubmit={handleSubmit} aria-label="Add alert Form">
-          <p>
-            <label htmlFor="alertName">Alert Title</label>
-            <input
-              type="text"
-              id="alertName"
-              onChange={handleChange}
-              name="alertName"
-              value={form.AlertName}
-              required
-            />
-          </p>
+        <input
+          type="text"
+          value={form.AlertName}
+          onChange={(e) => setForm({ AlertName: e.target.value })}
+          placeholder="Enter new alert text"
+        />
+        <br></br>
+        <Button onClick={handleSubmit}>Add Alert</Button>
+        <br></br>
 
-          <Stack direction="horizontal" gap={2}>
-            <Button as="a" variant="primary" type="submit">
-              Add alert
-            </Button>{' '}
-            <button
-              className="btn btn-secondary dropdown-toggle"
-              type="button"
-              id="dropdownMenuButtonDark"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Examples
-            </button>
-            <ul
-              className="dropdown-menu"
-              aria-labelledby="dropdownMenuButtonDark"
-            >
-              <li>
-                <a className="dropdown-item active" href="#">
-                  Mild Discomfort
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Require Urgent Action
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Keep Tabs
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  On The Mend
-                </a>
-              </li>
-            </ul>
-          </Stack>
-        </form>
+        <Dropdown>
+          <Dropdown.Toggle variant="success" id="dropdown-basic">
+            Examples
+          </Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item>Mild Discomfort</Dropdown.Item>
+            <Dropdown.Item>Require Urgent Action</Dropdown.Item>
+            <Dropdown.Item>Keep Tabs</Dropdown.Item>
+            <Dropdown.Item>On The Mend</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
       </section>
     </>
   )

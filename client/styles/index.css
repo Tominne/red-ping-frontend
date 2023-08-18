@@ -19,6 +19,10 @@ link {
   text-align: center;
 }
 
+.dropdown-menu{
+  color:rgb(255, 255, 255);
+}
+
 .loading {
   margin: auto;
   text-align: center;
