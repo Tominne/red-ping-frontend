@@ -5,7 +5,7 @@ export async function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
-const alertURL = 'https://red-ping-api.isaacirvine.me/'
+const alertURL = 'https://red-ping-api.isaacirvine.me'
 
 export const signUp = async (email: string, password: string) => {
   try {
