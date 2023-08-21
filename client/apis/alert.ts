@@ -5,16 +5,17 @@ export async function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
-const alertURL = 'https://red-ping-api-poc.isaacirvine.me'
+const alertURL = 'https://red-ping-api.isaacirvine.me/'
 
 export const signUp = async (email: string, password: string) => {
   try {
-    // send a POST request to the API with the email and password
-    const response = await axios.post(
-      'https://red-ping-api-poc.isaacirvine.me',
-      { email, password }
-    )
-    const data = response.data
+    // send a POST request to the API with the email and password as form data
+    const response = await request
+      .post(alertURL)
+      .type('form')
+      .send({ email, password })
+
+    const data = response.body as { success: boolean; message: string }
     if (data.success) {
       return { success: true }
     } else {
@@ -22,7 +23,7 @@ export const signUp = async (email: string, password: string) => {
     }
   } catch (err) {
     console.log(err)
-    return { success: false, message: 'An error occurred. Please try again.' }
+    return { success: false, message: 'Nope going on the signinbg in sadge' }
   }
 }
 
