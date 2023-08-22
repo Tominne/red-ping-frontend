@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 import Alert from 'react-bootstrap/Alert'
-import { signUp } from '../apis/alert'
-import { useEffect, useState } from 'react'
+import { login, signUp } from '../apis/alert'
+import React, { useEffect, useState } from 'react'
 import { MDBNavbarLink } from 'mdb-react-ui-kit'
 import { ToastContainer, toast } from 'react-toastify'
 
@@ -14,6 +14,8 @@ export default function HomePage() {
   const [timeOfDay, setTimeOfDay] = useState('waiting')
   const [greeting, setGreeting] = useState('Hello!')
   const [buttonColor, setButtonColor] = useState('primary')
+
+  const [isSignedUp, setIsSignedUp] = useState(false)
 
   useEffect(() => {
     const now = new Date()
@@ -41,17 +43,28 @@ export default function HomePage() {
     event.preventDefault()
     try {
       const response = await signUp(email, password)
-      /*if (response.success) {
-        setMessage('Signup successful!')
-        setEmail('')
-        setPassword('')
-      } else {
-        setMessage('loser it failed yikes')
-      }*/
+      setEmail('')
+      setPassword('')
+      setIsSignedUp(true)
     } catch (err) {
       console.log(err)
       setMessage('soz loser')
     }
+  }
+
+  const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    try {
+      const response = await login(email, password)
+      setEmail('')
+      setPassword('')
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  function toggleForm() {
+    setIsSignedUp((prevState) => !prevState)
   }
 
   return (
@@ -82,31 +95,68 @@ export default function HomePage() {
       <Alert className="alert">
         Welcome to Your Personal Digital Alert App
       </Alert>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email"> Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          required
-        />
-        <br></br>
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          required
-        />
-        <br></br>
-        <input type="submit" value="Sign Up"></input>
-      </form>
+      {/* Use a ternary operator to render either the sign up form or the log in form */}
+      {isSignedUp ? (
+        // Render the sign up form
+        <>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="email"> Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              required
+            />
+            <br></br>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              required
+            />
+            <br></br>
+            <input type="submit" value="Sign Up"></input>
+          </form>
+          {/* Render a button to toggle to the log in form */}
+          <Button onClick={toggleForm}>Log In</Button>
+        </>
+      ) : (
+        // Render the log in form
+        <>
+          <form onSubmit={handleLogin}>
+            <label htmlFor="email"> Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              required
+            />
+            <br></br>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              required
+            />
+            <br></br>
+            <input type="submit" value="Log In"></input>
+          </form>
+          {/* Render a button to toggle to the sign up form */}
+          <Button onClick={toggleForm}>Sign Up</Button>
+        </>
+      )}
+      {/* Render the toast container */}
       <ToastContainer />
-      <p>{message}</p>
     </div>
   )
 }
