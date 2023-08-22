@@ -4,6 +4,7 @@ import Alert from 'react-bootstrap/Alert'
 import { signUp } from '../apis/alert'
 import { useEffect, useState } from 'react'
 import { MDBNavbarLink } from 'mdb-react-ui-kit'
+import { ToastContainer, toast } from 'react-toastify'
 
 export default function HomePage() {
   const [email, setEmail] = useState('')
@@ -40,13 +41,13 @@ export default function HomePage() {
     event.preventDefault()
     try {
       const response = await signUp(email, password)
-      if (response.success) {
+      /*if (response.success) {
         setMessage('Signup successful!')
         setEmail('')
         setPassword('')
       } else {
         setMessage('loser it failed yikes')
-      }
+      }*/
     } catch (err) {
       console.log(err)
       setMessage('soz loser')
@@ -104,6 +105,7 @@ export default function HomePage() {
         <br></br>
         <input type="submit" value="Sign Up"></input>
       </form>
+      <ToastContainer />
       <p>{message}</p>
     </div>
   )

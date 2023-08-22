@@ -1,5 +1,7 @@
 import request from 'superagent'
-import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 import { Alert, AlertData } from '../../models/alert'
 export async function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms))
@@ -9,9 +11,8 @@ const alertURL = 'https://red-ping-api.isaacirvine.me'
 
 export const signUp = async (email: string, password: string) => {
   try {
-    // send a POST request to the API with the email and password as form data
     const response = await request
-      .post(alertURL)
+      .post(`${alertURL}/signup?email=${email}&password=${password}`) // use & to separate parameters
       .type('form')
       .send({ email, password })
 
@@ -23,12 +24,22 @@ export const signUp = async (email: string, password: string) => {
     }
   } catch (err) {
     console.log(err)
+    // Display an error toast message
+    toast.error(err.message, {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
     return { success: false, message: 'Nope going on the signinbg in sadge' }
   }
 }
 
 export const login = async (username: string, password: any) => {
-  const response = await fetch(alertURL, {
+  const response = await fetch(`${alertURL}/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
