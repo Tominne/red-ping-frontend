@@ -16,24 +16,29 @@ export const signUp = async (email: string, password: string) => {
       .type('form')
       .send({ email, password })
 
-    const data = response.body as { success: boolean; message: string }
-    if (data.success) {
-      return { success: true }
-    } else {
-      return { success: false, message: data.message }
+    if (response.status == 200) {
+      toast.success(`Welcome to the PING CULT ${email}`, {
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      })
     }
   } catch (err) {
     console.log(err)
     // Display an error toast message
-    toast.error(err.message, {
-      position: 'top-right',
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    })
+    if (err instanceof Error)
+      toast.error(err.message, {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      })
     return { success: false, message: 'Nope going on the signinbg in sadge' }
   }
 }
