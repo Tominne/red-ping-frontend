@@ -43,28 +43,38 @@ export const signUp = async (email: string, password: string) => {
   }
 }
 
-export const login = async (username: string, password: any) => {
-  const response = await fetch(`${alertURL}/login`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: new URLSearchParams({
-      grant_type: '<type>',
-      username,
-      password,
-      scope: '<SCOPE>',
-      client_id: '<CLIENT_ID>',
-      client_secret: '<CLIENT_SECRET>',
-    }),
-  })
+export const login = async (username: string, password: string) => {
+  try {
+    const response = await request
+      .post(`${alertURL}/login`)
+      .type('form')
+      .send({ username, password })
 
-  if (!response.ok) {
-    throw new Error('Login failed')
+    if (response.status == 200) {
+      toast.success(`You're all logged in ${username}`, {
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      })
+    }
+  } catch (err) {
+    console.log(err)
+    // Display an error toast message
+    if (err instanceof Error)
+      toast.error(err.message, {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      })
+    return { success: false, message: 'Nope going on the loggin in sadge' }
   }
-
-  const data = await response.json()
-  return data
 }
 
 //get alert

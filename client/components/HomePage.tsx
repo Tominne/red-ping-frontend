@@ -99,35 +99,6 @@ export default function HomePage() {
       {isSignedUp ? (
         // Render the sign up form
         <>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="email"> Email:</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              required
-            />
-            <br></br>
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-              required
-            />
-            <br></br>
-            <input type="submit" value="Sign Up"></input>
-          </form>
-          {/* Render a button to toggle to the log in form */}
-          <Button onClick={toggleForm}>Log In</Button>
-        </>
-      ) : (
-        // Render the log in form
-        <>
           <form onSubmit={handleLogin}>
             <label htmlFor="email"> Email:</label>
             <input
@@ -151,8 +122,37 @@ export default function HomePage() {
             <br></br>
             <input type="submit" value="Log In"></input>
           </form>
+          {/* Render a button to toggle to the log in form */}
+          <Button onClick={toggleForm}>Sign up</Button>
+        </>
+      ) : (
+        // Render the log in form
+        <>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="email"> Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              required
+            />
+            <br></br>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              required
+            />
+            <br></br>
+            <input type="submit" value="Sign Up"></input>
+          </form>
           {/* Render a button to toggle to the sign up form */}
-          <Button onClick={toggleForm}>Sign Up</Button>
+          <Button onClick={toggleForm}>Login</Button>
         </>
       )}
       {/* Render the toast container */}
