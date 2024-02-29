@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 
 import { getalertById } from '../apis/alert'
 
-export default function alertDetails() {
+export default function AlertDetails() {
   const { alertId } = useParams()
 
   const alertDetailsQuery = useQuery(['alerts', alertId], () =>
@@ -11,16 +11,20 @@ export default function alertDetails() {
   )
 
   if (alertDetailsQuery.isError) {
-    return <div>There was an error getting your alert</div>
+    return (
+      <div>
+        There was an error loading any thoughts today try again tomorrow cheers
+      </div>
+    )
   }
 
   if (alertDetailsQuery.isLoading) {
-    return <div>Loading your alert</div>
+    return <div>STOP VISITING MY MUMS HOUSE WITHOUT ME</div>
   }
 
   return (
     <section className="alert-details">
-      <h2>alert Details</h2>
+      <h2>Cat I please pet your cat</h2>
       <p>{`${alert}`}</p>
     </section>
   )

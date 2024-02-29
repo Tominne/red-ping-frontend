@@ -35,7 +35,9 @@ export default function Profile() {
 
   return (
     <div>
-      <Button onClick={handleImageUpload}>Upload Image</Button>
+      <Button onClick={handleImageUpload}>
+        Upload Rational explanation for what you are doing here...
+      </Button>
       <br></br>
       <br></br>
       {image && (
@@ -48,7 +50,9 @@ export default function Profile() {
           }}
         />
       )}
-      {image && !isImageLoaded && <div>Loading image...</div>}
+      {image && !isImageLoaded && (
+        <div>Loading rational explanation for what you are doing here...</div>
+      )}
     </div>
   )
 }
